@@ -98,13 +98,15 @@ public abstract class ItemsRotables
 			String assetNum = null;
 			String serialNum = null;
 			String glAccount = null;
+			String chipsetNum = null;
 			
-			for(int j = 0; j < titulo.length && j < 4; j++)
+			for(int j = 0; j < titulo.length && j < 5; j++)
 			{
 				if (titulo[j].equalsIgnoreCase("ITEMNUM"))  		itemNum = registros.get(i)[j];
 				else if (titulo[j].equalsIgnoreCase("ASSETNUM"))	assetNum = registros.get(i)[j];
 				else if (titulo[j].equalsIgnoreCase("SERIALNUM"))	serialNum = registros.get(i)[j];
 				else if (titulo[j].equalsIgnoreCase("GLACCOUNT"))	glAccount = registros.get(i)[j];
+				else if (titulo[j].equalsIgnoreCase("CHIPSETNUM"))	chipsetNum = registros.get(i)[j];
 			}
 			
 			ItemRotable itemRotable = new ItemRotable();
@@ -112,6 +114,7 @@ public abstract class ItemsRotables
 			itemRotable.setAssetNum(assetNum);
 			itemRotable.setSerialNum(serialNum);
 			itemRotable.setGlAccount(glAccount);
+			itemRotable.setChipsetNum(chipsetNum);
 			
 			this.Put(itemRotable);
 		}

@@ -17,6 +17,7 @@ public class ItemRotable {
 	private String assetNum;
 	private String serialNum;
 	private String glAccount;
+	private String chipsetNum;
 	
 	/**
 	 * Constructor nulo. 
@@ -30,14 +31,16 @@ public class ItemRotable {
 	 * @param  assetNum  Es el código del activo individual, es el  valor assetnum en la BD.
 	 * @param  serialNum  Es el N° de serie del activo, es el valor serialnum en la BD.
 	 * @param  glAccount  Es el código de la cuenta del LM, es el valor glaccount en la BD.
+	 * @param  chipsetNum  Es el N° de chipset, es el valor ars_chipsetnum en la BD.
 	 * @exception  IllegalArgumentException  Si alguno de los argumentos no es válido.
 	 */	
-	public ItemRotable(String itemNum, String assetNum, String serialNum, String glAccount) throws IllegalArgumentException
+	public ItemRotable(String itemNum, String assetNum, String serialNum, String glAccount, String chipsetNum) throws IllegalArgumentException
 	{
 		this.setItemNum(itemNum);
 		this.setAssetNum(assetNum);
 		this.setSerialNum(serialNum);
 		this.setGlAccount(glAccount);
+		this.setChipsetNum(chipsetNum);
 	}
 
 	/**
@@ -60,6 +63,13 @@ public class ItemRotable {
 	 * @return  El código de la cuenta del LM, es el valor glaccount en la BD.
 	 */	
 	public String getGlAccount() {return this.glAccount;}
+	
+	/**
+	 * Devuelve el N° de chipset.
+	 *
+	 * @return  El N° de chipset, es el valor ars_chipsetnum en la BD.
+	 */	
+	public String getChipsetNum() {return this.chipsetNum;}
 	
 	/**
 	 * Devuelve el N° de serie del activo.
@@ -96,6 +106,21 @@ public class ItemRotable {
 			throw new IllegalArgumentException(errorMsg);
 		}		
 		this.assetNum = assetNum == null? null: assetNum.trim().toUpperCase();
+	}
+
+	/**
+	 * Establece el N° de chipset. 
+	 *
+	 * @param  glAccount  Es el N° de chipset, es el valor ars_chipsetnum en la BD.
+	 * @exception  IllegalArgumentException  Si el argumento es inválido.
+	 */	
+	public void setChipsetNum(String chipsetNum) throws IllegalArgumentException {
+		boolean valid = chipsetNum == null || chipsetNum.length() <= 30;
+		if (!valid) {
+			String errorMsg = "Argumento inválido: chipsetNum.";
+			throw new IllegalArgumentException(errorMsg);
+		}		
+		this.chipsetNum = chipsetNum == null? null: chipsetNum.trim().toUpperCase();
 	}
 
 	/**

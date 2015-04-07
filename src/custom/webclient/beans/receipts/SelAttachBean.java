@@ -25,7 +25,6 @@ import psdi.util.MXException;
 import psdi.webclient.system.beans.DataBean;
 import psdi.util.logging.MXLogger;
 import psdi.util.logging.MXLoggerFactory;
-
 import custom.webclient.components.*;
 
 public class SelAttachBean extends DataBean
@@ -59,6 +58,7 @@ public class SelAttachBean extends DataBean
 	 *
 	 * @param  msg  Es el mensaje a mostrar.
 	 */	
+	@SuppressWarnings("deprecation")
 	private void msgbox(String msg)
 	{
 		String params[] = {msg};
@@ -192,6 +192,7 @@ public class SelAttachBean extends DataBean
 		    			String assetnum = itemRotable.getAssetNum();
 		    			String serialnum = itemRotable.getSerialNum();
 		    			String glaccount = itemRotable.getGlAccount();
+		    			String chipsetnum = itemRotable.getChipsetNum();
 
 		    			if (assetnum != null && assetnum != "")
 		    			{
@@ -206,6 +207,11 @@ public class SelAttachBean extends DataBean
 		    			if (glaccount != null && glaccount != "")
 		    			{
 		    				mboArticuloRecibido.setValue("glaccount", glaccount, Mbo.NOACCESSCHECK);
+		    			}
+		    					    			
+		    			if (chipsetnum != null && chipsetnum != "")
+		    			{
+		    				mboArticuloRecibido.setValue("ars_chipsetnum", chipsetnum, Mbo.NOACCESSCHECK);
 		    			}
 		    					    			
 		    			// Cuento así después informo

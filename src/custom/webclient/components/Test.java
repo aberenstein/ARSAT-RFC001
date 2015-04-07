@@ -9,12 +9,12 @@ public class Test {
 			artsRots.LeerDeArchivo(archivo);
 			System.out.println("\nARCHIVO:"+archivo);
 			System.out.println("CASO:"+caso);
-			System.out.println("ITEMNUM\t\tASSETNUM\t\tSERIALNUM\t\tGLACCOUNT");
-			System.out.println("-------\t\t--------\t\t---------\t\t---------");
+			System.out.println("ITEMNUM\t\tASSETNUM\t\tSERIALNUM\t\tGLACCOUNT\t\tCHIPSETNUM");
+			System.out.println("-------\t\t--------\t\t---------\t\t---------\t\t----------");
 			int size = artsRots.size();
 			for (int i = 0; i < size; i++) {
 				ItemRotable ir = artsRots.getItemRotable();
-				System.out.println(ir.getItemNum() + "\t\t" + ir.getAssetNum() + "\t\t" + ir.getSerialNum() + "\t\t" + ir.getGlAccount());
+				System.out.println(ir.getItemNum() + "\t\t" + ir.getAssetNum() + "\t\t" + ir.getSerialNum() + "\t\t" + ir.getGlAccount() + "\t\t" + ir.getChipsetNum());
 			}
 		}
 		catch (Exception ex)
@@ -31,12 +31,12 @@ public class Test {
 			artsRots.LeerDeArchivo(archivo);
 			System.out.println("\nARCHIVO:"+archivo);
 			System.out.println("CASO:"+caso);
-			System.out.println("ITEMNUM\t\tASSETNUM\t\tSERIALNUM\t\tGLACCOUNT");
-			System.out.println("-------\t\t--------\t\t---------\t\t---------");
+			System.out.println("ITEMNUM\t\tASSETNUM\t\tSERIALNUM\t\tGLACCOUNT\t\tCHIPSETNUM");
+			System.out.println("-------\t\t--------\t\t---------\t\t---------\t\t----------");
 			int size = artsRots.size();
 			for (int i = 0; i < size; i++) {
 				ItemRotable ir = artsRots.getItemRotable();
-				System.out.println(ir.getItemNum() + "\t\t" + ir.getAssetNum() + "\t\t" + ir.getSerialNum() + "\t\t" + ir.getGlAccount());
+				System.out.println(ir.getItemNum() + "\t\t" + ir.getAssetNum() + "\t\t" + ir.getSerialNum() + "\t\t" + ir.getGlAccount() + "\t\t" + ir.getChipsetNum());
 			}
 		}
 		catch (Exception ex)

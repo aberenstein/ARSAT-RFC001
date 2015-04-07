@@ -12,7 +12,7 @@ public class ItemsRotablesSplit extends ItemsRotables {
 	{
 		if (itemRotable.getItemNum() == null || itemRotable.getItemNum().isEmpty() || 
 			itemRotable.getAssetNum() == null || itemRotable.getAssetNum().isEmpty()) {
-			String msg = "Argumento inválido: ItemRotable('"+itemRotable.getItemNum()+"','"+itemRotable.getAssetNum()+"','"+itemRotable.getSerialNum()+"','"+itemRotable.getGlAccount()+"')";
+			String msg = "Argumento inválido: ItemRotable('"+itemRotable.getItemNum()+"','"+itemRotable.getAssetNum()+"','"+itemRotable.getSerialNum()+"','"+itemRotable.getGlAccount()+"','"+itemRotable.getChipsetNum()+"')";
 			throw new IllegalArgumentException(msg);
 		}
 	}

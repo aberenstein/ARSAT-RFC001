@@ -61,6 +61,7 @@ public class SelAttachBean extends DataBean
 	 *
 	 * @param  msg  Es el mensaje a mostrar.
 	 */	
+	@SuppressWarnings("deprecation")
 	private void msgbox(String msg)
 	{
 		String params[] = {msg};
@@ -223,6 +224,25 @@ public class SelAttachBean extends DataBean
 			    }
 		    	invUseLineSplitBean.AUTOSPLITQTY();
 
+				// Ahora itero y limpio en cada línea el número de artículo 
+		    	for (int i = 0; i < mbosetItemsADespachar.count(); i++) {
+		    		
+		    		// Averiguo que activo es este ítem
+		    		Mbo mboItemADespachar = (Mbo)mbosetItemsADespachar.getMbo(i);
+
+		    		// Obtengo los despachados
+					MboSetRemote mbosetItemsDespachados = mboItemADespachar.getMboSet("LINESPLIT");
+					
+					// Itero y reemplazo por lo indicado en el archivo
+			    	for (int j = 0; j < mbosetItemsDespachados.count(); j++) {
+			    		// Averiguo que activo es este ítem
+			    		Mbo mboItemDespachado = (Mbo)mbosetItemsDespachados.getMbo(j);
+			    	
+			    		// Reemplazo el número de artículo por un string vacío
+			    		mboItemDespachado.setValue("rotassetnum", "");
+			    	}
+		    	}
+				
 				// Ahora itero y reemplazo en cada línea el número de artículo 
 		    	for (int i = 0; i < mbosetItemsADespachar.count(); i++) {
 		    		
