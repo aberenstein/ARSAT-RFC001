@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry excluding="src/" kind="src" path=""/>
-	<classpathentry kind="lib" path="C:/Program Files/IBM/WebSphere/AppServer/lib/j2ee.jar"/>
 	<classpathentry kind="lib" path="C:/development/environ/Arsat/maximoui.ear/businessobjects.jar"/>
 	<classpathentry kind="lib" path="C:/development/environ/Arsat/maximoui.ear/maximouiweb.war/WEB-INF/classes"/>
 	<classpathentry kind="lib" path="C:/development/environ/Arsat/maximoui.ear/lib"/>
@@ -13,5 +12,7 @@
 	<classpathentry kind="lib" path="C:/development/workspace/Arsat/ARSAT-RFC001/lib/poi-ooxml-schemas-3.10-FINAL-20140208.jar"/>
 	<classpathentry kind="lib" path="C:/development/workspace/Arsat/ARSAT-RFC001/lib/xmlbeans-2.3.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/development/workspace/Arsat/ARSAT-RFC001/lib/jsoup-1.8.1.jar"/>
+	<classpathentry kind="lib" path="C:/development/environ/lib/j2ee.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

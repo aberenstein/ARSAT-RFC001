@@ -49,8 +49,6 @@ public abstract class ItemsRotables
 	 */	
 	public void LeerDeArchivo(String pathname) throws FileNotFoundException, InvalidFormatException, IllegalArgumentException, IOException {
 
-		List<String[]> registros;
-		
 		File archivo = new File(pathname);
 		if (pathname == null || pathname.isEmpty()) {
 			String errorMsg = "[ItemsRotables:LeerDeArchivo] Error inesperado al intentar leer el archivo: el nombre del archivo no puede ser nulo o vacío.";
@@ -61,8 +59,9 @@ public abstract class ItemsRotables
 		}
 			
 		try {
+			List<String[]> registros;
+			
 			String extension = pathname.substring(pathname.lastIndexOf('.')).toLowerCase();
-
 			if (extension.equalsIgnoreCase(".csv") || extension.equalsIgnoreCase(".txt"))
 				registros = this.LoadFromCsv(pathname);
 			else if (extension.equalsIgnoreCase(".xls") || extension.equalsIgnoreCase(".xlsx"))
@@ -272,13 +271,33 @@ public abstract class ItemsRotables
 	 */	
 	private List<String[]> LoadFromCsv(String pathname) throws FileNotFoundException, IOException, InvalidFormatException {
 		try {
-			FileReader fReader = new FileReader(pathname);
-			CSVReader reader = new CSVReader(fReader);
-			List<String[]> registros = reader.readAll();
-			reader.close();
-			fReader.close();
-			
-			return registros;
+			// Intento leer con separador ','
+		    CSVReader readerC = new CSVReader(new FileReader(pathname), ',');
+		    List<String[]> registrosC = readerC.readAll();
+		    readerC.close();
+		      
+			// Intento leer con separador ';'
+		    CSVReader readerPC = new CSVReader(new FileReader(pathname), ';');
+		    List<String[]> registrosPC = readerPC.readAll();
+		    readerPC.close();
+
+		    int lenC = ((String[])registrosC.get(0)).length;
+		    int lenPC = ((String[])registrosPC.get(0)).length;
+		    
+		    // Por la cantidad de campos elijo que lector uso
+		    if (lenPC == 1 && lenC > 1) {
+		      // Separador es ','
+		      return registrosC;
+		    }
+		    else if (lenC == 1 && lenPC > 1) {
+		      // Separador es ';'
+		      return registrosPC;
+		    }
+		    else
+		    {
+		    	// Separador es otro
+		    	throw new Exception();
+		    }
 		}
 		catch (Exception ex) {
 			String errorMsg = "Error al leer el archivo '" + pathname + "': formato inválido.";
@@ -332,19 +351,19 @@ public abstract class ItemsRotables
 				Cell c1 = row.getCell(1);
 				Cell c2 = row.getCell(2);
 				Cell c3 = row.getCell(3);
+				Cell c4 = row.getCell(4);
 
-				String [] fila = new String[4];
+				String [] fila = new String[5];
 				fila[0] = this.CellToString(c0);
 				fila[1] = this.CellToString(c1);
 				fila[2] = this.CellToString(c2);
 				fila[3] = this.CellToString(c3);
+				fila[4] = this.CellToString(c4);
 				
 				boolean celda0EsNulaOVacia = fila[0] == null || fila[0].isEmpty();
 				boolean celda1EsNulaOVacia = fila[1] == null || fila[1].isEmpty();
-				boolean celda2EsNulaOVacia = fila[2] == null || fila[2].isEmpty();
-				boolean celda3EsNulaOVacia = fila[3] == null || fila[3].isEmpty();
 					
-				if (celda0EsNulaOVacia && celda1EsNulaOVacia && celda2EsNulaOVacia && celda3EsNulaOVacia)  break;
+				if (celda0EsNulaOVacia && celda1EsNulaOVacia)  break;
 				
 				registros.add(fila);
 		    }

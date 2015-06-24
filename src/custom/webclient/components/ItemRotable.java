@@ -115,7 +115,7 @@ public class ItemRotable {
 	 * @exception  IllegalArgumentException  Si el argumento es inválido.
 	 */	
 	public void setChipsetNum(String chipsetNum) throws IllegalArgumentException {
-		boolean valid = chipsetNum == null || chipsetNum.length() <= 30;
+		boolean valid = chipsetNum == null || chipsetNum.isEmpty() || (chipsetNum != null && !chipsetNum.isEmpty() && chipsetNum.length() <= 30);
 		if (!valid) {
 			String errorMsg = "Argumento inválido: chipsetNum.";
 			throw new IllegalArgumentException(errorMsg);

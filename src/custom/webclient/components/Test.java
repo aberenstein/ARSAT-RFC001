@@ -48,10 +48,9 @@ public class Test {
 	
 	public static void main(String[] args) {
 		
-		Test.testInput("C:\\temp\\EJEMPLO01.csv", "REC OK 4 columnas");
-		Test.testInput("C:\\temp\\EJEMPLO02.csv", "REC OK 4 columnas distinto orden");
-		Test.testSplit("C:\\temp\\EJEMPLO01.csv", "INV OK 3 columnas una espurea");
-		Test.testSplit("C:\\temp\\EJEMPLO02.csv", "INV falta una columna");
+		Test.testSplit("C:\\Temp\\Consumo2084.xlsx", "100 filas xlsx");
+		Test.testSplit("C:\\Temp\\Consumo2084.xls", "100 filas xls");
+		Test.testSplit("C:\\Temp\\Consumo2084.csv", "100 filas csv");
 		
 	}
 
