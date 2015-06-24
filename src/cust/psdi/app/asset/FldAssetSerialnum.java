@@ -9,11 +9,11 @@ import psdi.tamit.app.asset.TAMITFldAssetChild;
 import psdi.util.MXApplicationException;
 import psdi.util.MXException;
 
-public class FldAssetAssetnum extends TAMITFldAssetChild {
+public class FldAssetSerialnum extends TAMITFldAssetChild {
 	String chipsetnum;
 	int fldWidth = 12;
 	
-	public FldAssetAssetnum(MboValue mbv) throws MXException {
+	public FldAssetSerialnum(MboValue mbv) throws MXException {
 		super(mbv);
 	}
 
