@@ -190,18 +190,14 @@ public class SelAttachBean extends DataBean
 		    			// saque un artículo de la bolsa: asigno
 
 		    			String assetnum = itemRotable.getAssetNum();
-		    			String serialnum = itemRotable.getSerialNum();
 		    			String glaccount = itemRotable.getGlAccount();
+		    			String serialnum = itemRotable.getSerialNum();
 		    			String chipsetnum = itemRotable.getChipsetNum();
+		    			String serialnum_chipsetnum = serialnum + "|" + chipsetnum;
 
 		    			if (assetnum != null && assetnum != "")
 		    			{
 		    				mboArticuloRecibido.setValue("assetnum", assetnum, Mbo.NOACCESSCHECK);
-		    			}
-		    			
-		    			if (serialnum != null && serialnum != "")
-		    			{
-		    				mboArticuloRecibido.setValue("serialnum", serialnum, Mbo.NOACCESSCHECK);
 		    			}
 		    			
 		    			if (glaccount != null && glaccount != "")
@@ -209,9 +205,9 @@ public class SelAttachBean extends DataBean
 		    				mboArticuloRecibido.setValue("glaccount", glaccount, Mbo.NOACCESSCHECK);
 		    			}
 		    					    			
-		    			if (chipsetnum != null && chipsetnum != "")
+		    			if (serialnum_chipsetnum != null && serialnum_chipsetnum != "")
 		    			{
-		    				mboArticuloRecibido.setValue("ars_chipsetnum", chipsetnum, Mbo.NOACCESSCHECK);
+		    				mboArticuloRecibido.setValue("serialnum", serialnum_chipsetnum, Mbo.NOACCESSCHECK);
 		    			}
 		    					    			
 		    			// Cuento así después informo
