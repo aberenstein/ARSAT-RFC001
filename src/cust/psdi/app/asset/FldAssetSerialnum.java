@@ -20,7 +20,7 @@ public class FldAssetSerialnum extends MboValueAdapter {
 		{
 			int pipeIndex = fldValue.indexOf("|");
 
-			String serialnum = fldValue.substring(0, pipeIndex - 1);
+			String serialnum = fldValue.substring(0, pipeIndex);
 			getMboValue("SERIALNUM").setValue(serialnum, NOACCESSCHECK|NOVALIDATION_AND_NOACTION);
 
 			String chipsetnum = fldValue.substring(pipeIndex + 1);
